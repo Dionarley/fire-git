@@ -7,7 +7,7 @@ ascii_art=" _____ _             ____ _ _
 |  _| | | | |  __/ | |_| | | |_ 
 |_|   |_|_|  \___|  \____|_|\__|"
 
-echo -e " ascii_art "
+echo -e "$ascii_art"
 
 echo "🚀 Iniciando instalador do Git Config Helper..."
 
