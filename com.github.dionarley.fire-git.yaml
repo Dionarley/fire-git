@@ -1,0 +1,22 @@
+id: com.github.dionarley.fire-git
+runtime: org.freedesktop.Platform
+runtime-version: '23.08'
+sdk: org.freedesktop.Sdk
+command: fire-git
+finish-args:
+  - --share=network
+  - --filesystem=home
+  - --device=all
+  - --talk-name=org.freedesktop.Flatpak 
+modules:
+  - name: fire-git
+    buildsystem: simple
+    build-commands:
+      
+      - install -D firegit.sh /app/bin/fire-git
+      - chmod +x /app/bin/fire-git
+    sources:
+      - type: git
+        url:  https://github.com/Dionarley/fire-git.git
+        branch: main
+        
