@@ -9,7 +9,7 @@ Configuração Automática: Define nome e email globalmente com um único script
 
 Suporte Flatpak: Funciona perfeitamente em ambientes sandbox (como o SteamOS ou Fedora Silverblue).
 
-Agnóstico a Distros: Deteta automaticamente se precisa de instalar o Git ou se ele já está presente.
+Agnóstico a Distros: Detecta automaticamente se precisa de instalar o Git ou se ele já está presente.
 
 
 Licença MIT: Software livre e aberto para a comunidade.
@@ -28,8 +28,10 @@ Opção 2: Script Direto (Bash)
 Se preferir rodar o script diretamente no seu terminal:
 
 Bash
-chmod +x firegit.sh
+```bash
+chmod +x firegit.sh;
 ./firegit.sh
+```
 🛠️ Como funciona o Flatpak?
 O manifesto Flatpak deste projeto utiliza o runtime org.freedesktop.Platform para garantir leveza e compatibilidade. Ele possui permissão de acesso à pasta home para que possa modificar o ficheiro .gitconfig do seu utilizador real, mesmo estando dentro de uma sandbox.
 
