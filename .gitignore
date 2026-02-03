@@ -1,0 +1,8 @@
+# Pastas de build do Flatpak-builder
+.flatpak-builder/
+build-dir/
+repo/
+
+# Ficheiros de saída (Bundles)
+*.flatpak
+
