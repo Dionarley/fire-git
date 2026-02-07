@@ -1,13 +1,5 @@
 🔥 fire-git
 
- _____ _             ____ _ _   
-|  ___(_)_ __ ___   / ___(_) |_ 
-| |_  | | '__/ _ \ | |  _| | __|
-|  _| | | | |  __/ | |_| | | |_ 
-|_|   |_|_|  \___|  \____|_|\__|"
-
-echo -e "$ascii_art"
-
 A forma mais rápida e fácil de configurar o seu Git em qualquer distribuição Linux.
 
 O fire-git é uma ferramenta de linha de comando (CLI) desenhada para automatizar a configuração inicial do Git (user.name e user.email). Seja numa instalação limpa ou num ambiente isolado, o fire-git garante que você esteja pronto para dar o seu primeiro commit em segundos.
