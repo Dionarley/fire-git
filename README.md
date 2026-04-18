@@ -1,39 +1,86 @@
-🔥 fire-git
+# fire-git
 
-A forma mais rápida e fácil de configurar o seu Git em qualquer distribuição Linux.
+The fastest and easiest way to configure Git on any Linux distribution.
 
-O fire-git é uma ferramenta de linha de comando (CLI) desenhada para automatizar a configuração inicial do Git (user.name e user.email). Seja numa instalação limpa ou num ambiente isolado, o fire-git garante que você esteja pronto para dar o seu primeiro commit em segundos.
+fire-git is a bash TUI tool that automates Git configuration (`user.name` and `user.email`).
+Features include: interactive TUI menu, multi-distro package manager detection,
+OS/environment detection, email validation, git tutorial, and Flatpak sandbox support.
 
-✨ Funcionalidades
-Configuração Automática: Define nome e email globalmente com um único script.
+## Features
 
-Suporte Flatpak: Funciona perfeitamente em ambientes sandbox (como o SteamOS ou Fedora Silverblue).
+- **Automatic Configuration** - Sets name and email globally with a single command
+- **Interactive TUI Menu** - User-friendly menu interface with multiple options
+- **10+ Package Managers** - Supports apt, apt-get, dnf, yum, pacman, zypper, microdnf, eopkg, apk, swupd
+- **System Detection** - Detects OS, environment (Flatpak, Snap, Docker, Nix), package managers
+- **Email Validation** - Validates email format before saving
+- **Git Tutorial** - Built-in quick reference guide
+- **Additional Settings** - Applies useful git settings (defaultBranch, pull.rebase, etc.)
+- **Flatpak Support** - Works in sandbox environments (SteamOS, Fedora Silverblue)
+- **MIT Licensed** - Free and open source
 
-Agnóstico a Distros: Detecta automaticamente se precisa de instalar o Git ou se ele já está presente.
+## Quick Start
 
-
-Licença MIT: Software livre e aberto para a comunidade.
-
-📦 Instalação
-Opção 1: Flatpak (Recomendado)
-A forma mais segura e portátil. Você pode baixar o ficheiro .flatpak na nossa aba de Releases.
-
-Bash
-# Instalar o bundle
-flatpak install --user fire-git.flatpak
-
-# Executar
-flatpak run com.github.dionarley.fire-git
-Opção 2: Script Direto (Bash)
-Se preferir rodar o script diretamente no seu terminal:
-
-Bash
 ```bash
-chmod +x firegit.sh;
-./firegit.sh
+# Make executable and run
+chmod +x src/firegit.sh
+./src/firegit.sh
 ```
-🛠️ Como funciona o Flatpak?
-O manifesto Flatpak deste projeto utiliza o runtime org.freedesktop.Platform para garantir leveza e compatibilidade. Ele possui permissão de acesso à pasta home para que possa modificar o ficheiro .gitconfig do seu utilizador real, mesmo estando dentro de uma sandbox.
 
-📄 Licença
-Este projeto está sob a licença MIT. Consulte o ficheiro LICENSE para mais detalhes.
+Or with environment variables:
+
+```bash
+GIT_NAME="Your Name" GIT_EMAIL="you@example.com" ./src/firegit.sh
+```
+
+## CLI Options
+
+```bash
+-h, --help       Show help message
+--check          Check current git configuration
+--reset         Reset git configuration
+--tutorial       Show git quick tutorial
+```
+
+## TUI Menu
+
+When git is already configured, fire-git opens an interactive menu:
+
+1. Reconfigure Git (name/email)
+2. View current config
+3. Reset configuration
+4. Git Quick Tutorial
+5. Apply additional settings
+6. Show System Info
+7. Exit
+
+## Package Managers Supported
+
+| Manager | Distributions |
+|---------|---------------|
+| apt/apt-get | Debian, Ubuntu, Linux Mint |
+| dnf | Fedora, RHEL 8+ |
+| yum | RHEL 7, CentOS |
+| pacman | Arch Linux, Manjaro |
+| zypper | openSUSE |
+| microdnf | Fedora Silverblue, CentOS Stream |
+| eopkg | Solus |
+| apk | Alpine Linux |
+| swupd | Clear Linux |
+
+## Environment Variables
+
+- `GIT_NAME` - Git user name (optional, prompts if not set)
+- `GIT_EMAIL` - Git user email (optional, prompts if not set)
+- `APPLY_ADDITIONAL` - Apply extra settings (default: true)
+
+## Documentation
+
+See [DOCS/](DOCS/) for full documentation:
+
+- [DOCS/INSTALL.md](DOCS/INSTALL.md) - Installation options
+- [DOCS/FLATPAK.md](DOCS/FLATPAK.md) - Flatpak guide
+- [DOCS/CONTRIBUTING.md](DOCS/CONTRIBUTING.md) - Contributing guide
+
+## License
+
+MIT - See [LICENSE](LICENSE) for details.
