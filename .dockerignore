@@ -1,0 +1,13 @@
+.git
+.gitignore
+LICENSE
+README.md
+AGENTS.md
+*.md
+tests/
+DOCS/
+packages/
+flatpak/
+Dockerfile
+docker-compose.yml
+.dockerignore
