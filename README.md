@@ -20,6 +20,15 @@ OS/environment detection, email validation, git tutorial, and Flatpak sandbox su
 
 ## Quick Start
 
+### One-Line Install (No Download)
+
+```bash
+# Configure git directly
+curl -sL https://github.com/Donarley/fire-git/raw/main/installer.sh | bash -s -- 'Your Name' 'you@example.com'
+```
+
+### Local Run
+
 ```bash
 # Make executable and run
 chmod +x src/firegit.sh
