@@ -24,13 +24,33 @@ fire-git/
 │       └── tui.sh          # TUI menu system
 ├── flatpak/
 │   └── com.github.donarley.fire-git.yaml  # Flatpak manifest
+├── packages/               # Package specs for distros
 ├── DOCS/
 │   └── *.md                 # Documentation
 ├── tests/
 │   └── run_tests.sh        # Test suite (19 tests)
+├── Dockerfile             # Docker dev environment
+├── docker-compose.yml     # Docker compose
+├── installer.sh          # Cross-installer
 ├── README.md
 ├── LICENSE
 └── AGENTS.md
+```
+
+### Docker Development
+
+```bash
+# Build dev image
+docker build -t fire-git-dev .
+
+# Run tests in container
+docker run --rm fire-git-dev ./tests/run_tests.sh
+
+# Run with compose
+docker-compose run test
+
+# Interactive shell
+docker-compose run dev
 ```
 
 ## Build/Test Commands
