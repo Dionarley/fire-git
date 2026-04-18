@@ -3,15 +3,16 @@ set -e
 
 VERSION="1.2.0"
 
+RAW_URL="https://raw.githubusercontent.com/Donarley/fire-git/main/installer.sh"
+
 install_firegit() {
   local install_dir="${1:-$HOME/.local/bin}"
-  local repo_url="https://raw.githubusercontent.com/Dionarley/fire-git/main"
 
   echo "Installing fire-git v$VERSION..."
 
   mkdir -p "$install_dir"
 
-  curl -sL "$repo_url/src/firegit.sh" -o "$install_dir/fire-git"
+  curl -sL "$RAW_URL" -o "$install_dir/fire-git"
   chmod +x "$install_dir/fire-git"
 
   echo "Installed to $install_dir/fire-git"
@@ -23,8 +24,8 @@ configure_git_direct() {
   local git_email="$2"
 
   if [ -z "$git_name" ] || [ -z "$git_email" ]; then
-    echo "Usage: curl -sL https://git.io/fire-git | bash -s -- 'Your Name' 'you@example.com'"
-    echo "Or: wget -qO- https://git.io/fire-git | bash -s -- 'Your Name' 'you@example.com'"
+    echo "Usage: curl -sL https://bit.ly/fire-git | bash -s -- 'Your Name' 'you@example.com'"
+    echo "Or: wget -qO- https://bit.ly/fire-git | bash -s -- 'Your Name' 'you@example.com'"
     exit 1
   fi
 
@@ -45,7 +46,7 @@ configure_git_direct() {
     echo "  Debian/Ubuntu: sudo apt install git"
     echo "  Fedora:        sudo dnf install git"
     echo "  Arch:         sudo pacman -S git"
-    echo "  Alpine:      sudo apk add git"
+    echo "  Alpine:       sudo apk add git"
     exit 1
   fi
 }
@@ -58,18 +59,20 @@ main() {
   else
     echo "fire-git installer v$VERSION"
     echo ""
-    echo "Usage:"
+    echo "Usage (one-line install):"
+    echo ""
     echo "  Configure git directly:"
-    echo "    curl -sL https://git.io/fire-git | bash -s -- 'Your Name' 'you@example.com'"
-    echo "    wget -qO- https://git.io/fire-git | bash -s -- 'Your Name' 'you@example.com'"
+    echo "    curl -sL https://tinyurl.com/fire-git | bash -s -- 'Your Name' 'you@example.com'"
     echo ""
     echo "  Install fire-git TUI:"
-    echo "    curl -sL https://git.io/fire-git | bash -s -- install"
-    echo "    wget -qO- https://git.io/fire-git | bash -s -- install"
+    echo "    curl -sL https://tinyurl.com/fire-git | bash -s -- install"
     echo ""
     echo "Examples:"
-    echo "  curl -sL https://git.io/fire-git | bash -s -- 'John Doe' 'john@example.com'"
-    echo "  curl -sL https://git.io/fire-git | bash -s -- install ~/.local/bin"
+    echo "  curl -sL https://tinyurl.com/fire-git | bash -s -- 'John Doe' 'john@example.com'"
+    echo "  curl -sL https://tinyurl.com/fire-git | bash -s -- install ~/.local/bin"
+    echo ""
+    echo "GitHub direct (no short URL needed):"
+    echo "  curl -sL https://github.com/Donarley/fire-git/raw/main/installer.sh | bash -s -- 'Name' 'email'"
   fi
 }
 
