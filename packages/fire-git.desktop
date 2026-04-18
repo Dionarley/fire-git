@@ -1,0 +1,19 @@
+Package: fire-git
+Version: 1.2.0
+Section: utils
+Priority: optional
+Maintainer: Donarley <donarley@proton.me>
+Architecture: all
+Depends: git (>= 2.0)
+Description: Git configuration tool for Linux
+ A bash TUI tool that automates Git configuration (user.name and user.email).
+ .
+ Features include:
+  - Interactive TUI menu
+  - Multi-distro package manager detection
+  - OS/environment detection
+  - Email validation
+  - Git tutorial
+  - Flatpak sandbox support
+Origin: https://github.com/Donarley/fire-git
+Homepage: https://github.com/Donarley/fire-git

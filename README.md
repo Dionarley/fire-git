@@ -1,95 +1,134 @@
 # fire-git
 
-The fastest and easiest way to configure Git on any Linux distribution.
+> A cross-distribution Git configuration tool for Linux
 
-fire-git is a bash TUI tool that automates Git configuration (`user.name` and `user.email`).
-Features include: interactive TUI menu, multi-distro package manager detection,
-OS/environment detection, email validation, git tutorial, and Flatpak sandbox support.
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Version](https://img.shields.io/badge/version-1.2.0-blue.svg)](https://github.com/Donarley/fire-git/releases)
+[![Platform](https://img.shields.io/badge/platform-Linux-black.svg)](https://github.com/Donarley/fire-git)
+[![Shell](https://img.shields.io/badge/shell-bash-orange.svg)](https://www.gnu.org/software/bash/)
+
+fire-git is a bash-based TUI (Text User Interface) tool that automates Git configuration
+(`user.name` and `user.email`). It works on any Linux distribution and supports
+sandbox environments like Flatpak.
 
 ## Features
 
-- **Automatic Configuration** - Sets name and email globally with a single command
-- **Interactive TUI Menu** - User-friendly menu interface with multiple options
-- **10+ Package Managers** - Supports apt, apt-get, dnf, yum, pacman, zypper, microdnf, eopkg, apk, swupd
-- **System Detection** - Detects OS, environment (Flatpak, Snap, Docker, Nix), package managers
-- **Email Validation** - Validates email format before saving
-- **Git Tutorial** - Built-in quick reference guide
-- **Additional Settings** - Applies useful git settings (defaultBranch, pull.rebase, etc.)
-- **Flatpak Support** - Works in sandbox environments (SteamOS, Fedora Silverblue)
-- **MIT Licensed** - Free and open source
+| Feature | Description |
+|--------|-------------|
+| **TUI Menu** | Interactive 7-option menu interface |
+| **Auto-Detection** | Detects 10+ package managers automatically |
+| **System Detection** | Identifies OS, environment (Flatpak/Snap/Docker) |
+| **Validation** | Validates email format before saving |
+| **Tutorial** | Built-in Git quick reference |
+| **Settings** | Applies recommended Git defaults |
 
-## Quick Start
+## Supported Systems
 
-### One-Line Install (No Download)
-
-```bash
-# Configure git directly
-curl -sL https://github.com/Donarley/fire-git/raw/main/installer.sh | bash -s -- 'Your Name' 'you@example.com'
-```
-
-### Local Run
-
-```bash
-# Make executable and run
-chmod +x src/firegit.sh
-./src/firegit.sh
-```
-
-Or with environment variables:
-
-```bash
-GIT_NAME="Your Name" GIT_EMAIL="you@example.com" ./src/firegit.sh
-```
-
-## CLI Options
-
-```bash
--h, --help       Show help message
---check          Check current git configuration
---reset         Reset git configuration
---tutorial       Show git quick tutorial
-```
-
-## TUI Menu
-
-When git is already configured, fire-git opens an interactive menu:
-
-1. Reconfigure Git (name/email)
-2. View current config
-3. Reset configuration
-4. Git Quick Tutorial
-5. Apply additional settings
-6. Show System Info
-7. Exit
-
-## Package Managers Supported
+### Package Managers
 
 | Manager | Distributions |
 |---------|---------------|
-| apt/apt-get | Debian, Ubuntu, Linux Mint |
-| dnf | Fedora, RHEL 8+ |
-| yum | RHEL 7, CentOS |
-| pacman | Arch Linux, Manjaro |
-| zypper | openSUSE |
+| apt/apt-get | Debian, Ubuntu, Linux Mint, Pop!_OS |
+| dnf | Fedora, RHEL 8+, CentOS Stream |
+| yum | RHEL 7, CentOS 7 |
+| pacman | Arch Linux, Manjaro, EndeavourOS |
+| zypper | openSUSE, SUSE Linux Enterprise |
 | microdnf | Fedora Silverblue, CentOS Stream |
 | eopkg | Solus |
 | apk | Alpine Linux |
 | swupd | Clear Linux |
 
-## Environment Variables
+### Environments
 
-- `GIT_NAME` - Git user name (optional, prompts if not set)
-- `GIT_EMAIL` - Git user email (optional, prompts if not set)
-- `APPLY_ADDITIONAL` - Apply extra settings (default: true)
+- Native (bare metal)
+- Flatpak sandbox
+- Snap sandbox
+- Docker container
+- Nix environment
+
+## Installation
+
+### One-Line (Quickest)
+
+```bash
+# Configure Git directly
+curl -sL https://github.com/Donarley/fire-git/raw/main/installer.sh | bash -s -- 'Your Name' 'you@example.com'
+```
+
+### From Source
+
+```bash
+# Clone and run
+git clone https://github.com/Donarley/fire-git.git
+cd fire-git
+chmod +x src/firegit.sh
+./src/firegit.sh
+```
+
+### Environment Variables
+
+```bash
+GIT_NAME="Your Name" GIT_EMAIL="you@example.com" ./src/firegit.sh
+```
+
+## Package Managers (Repository)
+
+Add your distribution's package manager below.
+
+| Distribution | Command |
+|-------------|---------|
+| Arch Linux | `yay -S fire-git` (AUR) |
+| NixOS | `nix-env -i fire-git` |
+
+## CLI Options
+
+```bash
+-h, --help       Display help
+--check          View current git configuration
+--reset         Remove git configuration
+--tutorial      Show Git quick reference
+```
+
+## TUI Menu Options
+
+When Git is already configured, fire-git displays an interactive menu:
+
+```
+========================================
+         Main Menu
+========================================
+
+  1) Reconfigure Git (name/email)
+  2) View current config
+  3) Reset configuration
+  4) Git Quick Tutorial
+  5) Apply additional settings
+  6) Show System Info
+  7) Exit
+```
+
+## Git Settings Applied
+
+fire-git automatically applies these recommended settings:
+
+| Setting | Value | Description |
+|---------|-------|-------------|
+| `init.defaultBranch` | main | Default branch name |
+| `pull.rebase` | false | Merge strategy |
+| `push.default` | current | Push strategy |
+| `fetch.prune` | true | Auto-prune refs |
+| `color.ui` | auto | Color output |
 
 ## Documentation
 
-See [DOCS/](DOCS/) for full documentation:
-
-- [DOCS/INSTALL.md](DOCS/INSTALL.md) - Installation options
-- [DOCS/FLATPAK.md](DOCS/FLATPAK.md) - Flatpak guide
-- [DOCS/CONTRIBUTING.md](DOCS/CONTRIBUTING.md) - Contributing guide
+- [Installation Guide](DOCS/INSTALL.md)
+- [Flatpak Guide](DOCS/FLATPAK.md)
+- [Contributing](DOCS/CONTRIBUTING.md)
 
 ## License
 
-MIT - See [LICENSE](LICENSE) for details.
+MIT License - See [LICENSE](LICENSE) for details.
+
+## Author
+
+Donarley - [GitHub](https://github.com/Donarley/fire-git)

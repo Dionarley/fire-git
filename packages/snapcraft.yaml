@@ -1,0 +1,25 @@
+name: fire-git
+version: '1.2.0'
+summary: Git configuration tool for Linux
+description: |
+  A bash TUI tool that automates Git configuration (user.name and user.email).
+  Features include: interactive TUI menu, multi-distro package manager detection,
+  OS/environment detection, email validation, git tutorial, and Flatpak sandbox support.
+grade: stable
+confinement: classic
+architectures:
+  - amd64
+  - arm64
+apps:
+  fire-git:
+    command: bin/fire-git
+parts:
+  fire-git:
+    plugin: dump
+    source: https://github.com/Donarley/fire-git/archive/v1.2.0.tar.gz
+    source-type: tar
+    stage:
+      - src/firegit.sh
+    prepare: |
+      mv src/firegit.sh usr/bin/fire-git
+      chmod +x usr/bin/fire-git

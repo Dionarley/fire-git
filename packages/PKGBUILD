@@ -1,0 +1,15 @@
+# Maintainer: Donarley <donarley@proton.me>
+pkgname=fire-git
+pkgver=1.2.0
+pkgrel=1
+pkgdesc="Git configuration tool for Linux - TUI for git user.name and user.email"
+arch=('any')
+url="https://github.com/Donarley/fire-git"
+license=('MIT')
+depends=('git')
+source=("https://github.com/Donarley/fire-git/raw/v${pkgver}/src/firegit.sh")
+sha256sums=('SKIP')
+
+package() {
+  install -Dm755 "${srcdir}/firegit.sh" "${pkgdir}/usr/bin/fire-git"
+}
